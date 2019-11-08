@@ -1,0 +1,28 @@
+<% include partials/header.ejs %>
+
+
+<form method="POST" action="/recipes">
+	<label>Name</label>
+	<input type="text" name="recipe[name]" required="true">
+	<label>Image</label>
+	<input type="text" name="recipe[image]" required="true">
+	<label>Meal Type</label>
+	<input type="text" name="recipe[mealType]" required="true">
+	<label>Protein</label>
+	<input type="text" name="recipe[protein]" required="true">
+	<label>Calories</label>
+	<input type="number" name="recipe[calories]" required="true">
+	<label>Cook Time In Minutes</label>
+	<input type="number" name="recipe[cookTimeInMinutes]" required="true">
+	<label>Serving Size</label>
+	<input type="number" name="recipe[servingSize]" required="true">
+	<label>Ingredients</label>
+	<input type="text" name="recipe[ingredients]" required="true">
+	<textarea></textarea>
+	<label>Directions</label>
+	<input type="text" name="recipe[directions]" required="true">
+</form>
+
+
+
+<% include partials/footer.ejs %>

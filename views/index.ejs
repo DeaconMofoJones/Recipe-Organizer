@@ -1,0 +1,13 @@
+<% include partials/header.ejs %>
+
+
+<div class="container" style="background-color: purple">
+	<a href="/recipes/new">new</a>
+</div>
+
+<% for (var i = 0; i < recipes.length; i++) { %>
+	<h1><%= recipes[i].name %></h1>
+<% } %>
+
+
+<% include partials/footer.ejs %>
