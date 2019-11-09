@@ -35,28 +35,26 @@ var recipeSchematic = new mongoose.Schema({
 	calories: Number,
 	cookTimeInMinutes:Number,
 	servingSize: Number,
-	ingredients: Array,
+	ingredients: String,
 	directions: String
 })
 
 var Recipe = mongoose.model("Recipe", recipeSchematic);
 
-Recipe.create({
-	name: "chicken salad",
-	image: "img url",
-	mealType: "lunch",
-	protein: "chicken",
-	calories: 50,
-	cookTimeInMinutes:30,
-	servingSize: 3,
-	ingredients: ["chicken","salad","ranch dressing"],
-	directions: "step 1. step 2. step 3."
-})
 
+
+
+//=======================
+//=== RESTFUL Routes=====
+//=======================
+
+
+//Index
 app.get("/", function(req,res){
 	res.redirect("/recipes");
 })
 
+//New
 app.get("/recipes", function(req,res){
 	Recipe.find({},function(err,foundRecipes){
 		if (err) {
@@ -67,7 +65,7 @@ app.get("/recipes", function(req,res){
 	})
 })
 
-
+//Create
 app.get("/recipes/new", function(req,res){
 	res.render("recipeNew.ejs");
 })
@@ -82,12 +80,46 @@ app.post("/recipes", function(req,res){
 	})
 })
 
+//Show
 app.get("/recipes/:id", function(req,res){
 	Recipe.findById(req.params.id, function(err,foundRecipe){
 		res.render("recipeShowDetails.ejs", {recipe:foundRecipe})
 	})
 })
 
+//Edit
+app.get("/recipes/:id/edit", function(req,res){
+	Recipe.findById(req.params.id, function(err,foundRecipe){
+		if (err) {
+			console.log("error: "+ err)
+		} else{
+			res.render("recipeEdit.ejs", {recipe:foundRecipe})
+		}
+	})
+})
+
+//Update
+app.put("/recipes/:id", function(req,res){
+	Recipe.findByIdAndUpdate(req.params.id, req.body.recipe, function(err,updatedRecipe){
+		if (err) {
+			console.log("err "+ err)
+		} else {
+			res.redirect("/recipes")
+		}
+	})
+})
+
+//Destroy
+app.delete("/recipes/:id", function(req,res){
+	Recipe.findByIdAndDelete(req.params.id, function(err, deletedRecipe){
+		if (err) {
+			console.log("err: "+ err)
+		} else {
+			console.log("successfully deleted: " +deletedRecipe.name + " with id of: "+deletedRecipe._id)
+			res.redirect("/recipes")
+		}
+	})
+})
 
 app.listen(port, function(){
 	console.log("Merchandiser App has started")

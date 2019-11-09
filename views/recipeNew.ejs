@@ -2,25 +2,64 @@
 
 
 <form method="POST" action="/recipes">
-	<label>Name</label>
-	<input type="text" name="recipe[name]" required="true">
-	<label>Image</label>
-	<input type="text" name="recipe[image]" required="true">
-	<label>Meal Type</label>
-	<input type="text" name="recipe[mealType]" required="true">
-	<label>Protein</label>
-	<input type="text" name="recipe[protein]" required="true">
-	<label>Calories</label>
-	<input type="number" name="recipe[calories]" required="true">
-	<label>Cook Time In Minutes</label>
-	<input type="number" name="recipe[cookTimeInMinutes]" required="true">
-	<label>Serving Size</label>
-	<input type="number" name="recipe[servingSize]" required="true">
-	<label>Ingredients</label>
-	<input type="text" name="recipe[ingredients]" required="true">
-	<textarea></textarea>
-	<label>Directions</label>
-	<input type="text" name="recipe[directions]" required="true">
+
+	    	<div class="form-group">
+	    		<label for="nameInput">Name</label>
+				<input class="form-control" type="text" id="nameInput" name="recipe[name]" required="true" >
+	    	</div>
+	      	
+
+	    	<div class="form-group">
+	    		<label for="imageInput">Image</label>
+				<input class="form-control" type="text" name="recipe[image]" required="true"  id="imageInput">
+	    	</div>
+	      	
+
+	    	<div class="form-group">
+	    		<label for="mealTypeInput">Meal Type</label>
+				<input class="form-control" type="text" id="mealTypeInput" name="recipe[mealType]" required="true" >
+	    	</div>
+	      	
+
+	    	<div class="form-group">
+	    		<label for="proteinInput">Protein</label>
+				<input class="form-control" type="text" id="proteinInput" name="recipe[protein]" required="true" >
+	    	</div>
+	      	
+
+	    	<div class="form-group">
+	    		<label for="caloriesInput">Calories</label>
+				<input class="form-control" type="number" id="caloriesInput" name="recipe[calories]" required="true" >
+	    	</div>
+	      	
+
+	    	<div class="form-group">
+	    		<label for="cookTimeInMinutesInput">Cook Time In Minutes</label>
+				<input class="form-control" id="cookTimeInMinutesInput" type="number" name="recipe[cookTimeInMinutes]" required="true" >
+	    	</div>
+
+	    	<div class="form-group">
+	    		<label for="servingSizeInput">Serving Size</label>
+				<input class="form-control" type="number" id="servingSizeInput" name="recipe[servingSize]" required="true" >
+	    	</div>
+	      	
+
+	    	<div class="form-group">
+		      	<label for="ingredientsInput">Ingredients</label>
+				<input class="form-control" id="ingredientsInput" type="text" name="recipe[ingredients]" required="true" >
+	    	</div>
+
+	    	<div class="form-group">
+	    		<label for="directionsInput">Directions</label>
+				<input class="form-control" type="text" id="directionsInput" name="recipe[directions]" required="true" >
+	    	</div>
+	      	
+
+	    	<div class="form-group">
+	    		<button>Submit</button>
+	    	</div>
+	      	
+	    </div>
 </form>
 
 

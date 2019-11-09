@@ -1,6 +1,11 @@
 <% include partials/header.ejs %>
 
 
-
+<%= recipe._id %>
+<%= recipe.name %>
+<a href="/recipes/<%= recipe._id %>/edit">edit</a>
+<form method="POST" action="/recipes/<%= recipe._id %>?_method=DELETE">
+	<button>Delete</button>
+</form>
 
 <% include partials/footer.ejs %>

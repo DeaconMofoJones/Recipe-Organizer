@@ -6,7 +6,7 @@
 </div>
 
 <% for (var i = 0; i < recipes.length; i++) { %>
-	<h1><%= recipes[i].name %></h1>
+	<h1><a href="/recipes/<%= recipes[i]._id %>"><%= recipes[i].name %></a></h1>
 <% } %>
 
 
