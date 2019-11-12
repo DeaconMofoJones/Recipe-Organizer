@@ -122,5 +122,5 @@ app.delete("/recipes/:id", function(req,res){
 })
 
 app.listen(port, function(){
-	console.log("Merchandiser App has started")
+	console.log("Recipe Organizer App has started")
 });
