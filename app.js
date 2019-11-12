@@ -1,5 +1,6 @@
 var express 	= require("express"),
 app				= express(),
+request 		=require("request"),
 mongoose		= require("mongoose"),
 methodOverride 	= require("method-override"),
 bodyParser 		= require("body-parser"),
