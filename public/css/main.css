@@ -28,10 +28,46 @@ h1{
 	background-color: #f0ebb1;
 }
 
-.section-thumbnail {
-
+.section-thumbnail .thumbnail {
+	transition: all .4s;
+	color: white;
 }
 
-.section-thumbnail .thumbnail {
+.section-thumbnail .thumbnail:hover {
 	/*background-image: url("https://images.unsplash.com/photo-1426869981800-95ebf51ce900?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");*/
+	transform: scale(1.1);
+	z-index: 10;
+}
+
+.cover {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: black;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0.3;
+	transition: all 0.4s;
+}
+
+.cover:hover {
+	opacity: 0;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
 }

@@ -55,7 +55,7 @@ app.get("/", function(req,res){
 	res.redirect("/recipes");
 })
 
-//New
+//Index
 app.get("/recipes", function(req,res){
 	Recipe.find({},function(err,foundRecipes){
 		if (err) {
@@ -66,11 +66,15 @@ app.get("/recipes", function(req,res){
 	})
 })
 
-//Create
+//New
 app.get("/recipes/new", function(req,res){
 	res.render("recipeNew.ejs");
 })
+app.get("/recipes/newLink", function(req,res){
+	res.render("recipeNewLink.ejs");
+})
 
+//Create
 app.post("/recipes", function(req,res){
 	Recipe.create(req.body.recipe,function(err, createdRecipe){
 		if (err) {
@@ -78,6 +82,12 @@ app.post("/recipes", function(req,res){
 		} else {
 			res.redirect("/recipes/"+createdRecipe._id)
 		}
+	})
+})
+app.get("/recipes/newLink/:url", function(req,res){
+	var url = req.params.url;
+	request(url,function(error,response,body){
+		res.send(body);
 	})
 })
 

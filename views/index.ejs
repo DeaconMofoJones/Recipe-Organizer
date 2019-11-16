@@ -6,20 +6,15 @@
 
 	<a href="/recipes/new">new</a>
 
-<div class="container-fluid section">
-	<% for (var i = 0; i < recipes.length; i++) { %>
-		<div class="">
-			<h1><a href="/recipes/<%= recipes[i]._id %>"><%= recipes[i].name %></a></h1>
-		</div>
-	<% } %>
-</div>
+
 <div class="container-fluid section section-thumbnail">
 	<div class="row" >
 		<% for (var i = 0; i < recipes.length; i++) { %>
 			<a href="/recipes/<%= recipes[i]._id %>" class="col-3 thumbnail" image="URL(<%= recipes[i].image %>)">
 				
 					<h1><%= recipes[i].name %></h1>
-				
+				<div class="cover">
+				</div>
 			</a>
 		<% } %>
 	</div>
