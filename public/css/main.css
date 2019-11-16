@@ -21,6 +21,7 @@ h1{
 
 .section {
 	background-color: #cfcfcf;
+	
 
 }
 
@@ -31,6 +32,7 @@ h1{
 .section-thumbnail .thumbnail {
 	transition: all .4s;
 	color: white;
+	
 }
 
 .section-thumbnail .thumbnail:hover {
@@ -50,6 +52,7 @@ h1{
 	left: 0;
 	opacity: 0.3;
 	transition: all 0.4s;
+	
 }
 
 .cover:hover {
@@ -70,4 +73,8 @@ a:hover {
 
 a:active {
   text-decoration: none;
+}
+
+.btn {
+	font-size: 30px;
 }
