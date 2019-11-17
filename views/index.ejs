@@ -1,14 +1,17 @@
 <% include partials/header.ejs %>
 
-<div class="jumbotron">
+<div class="jumbotron color-3">
 	<h1>Hello</h1>
 </div>
 
-	<a href="/recipes/new" class="btn btn-outline-primary" role="button"><i class="fas fa-plus"></i></a>
 
 
-<div class="container-fluid section section-thumbnail">
-	<div class="row" >
+<div class="container section section-thumbnail">
+	<div class="jumbotron section-header color-1">
+			<a href="/recipes/new" class="btn btn-outline-primary color-4" role="button"><i class="fas fa-plus"></i></a>
+		</div>
+	<div class="row color-2" >
+		
 		<% for (var i = 0; i < recipes.length; i++) { %>
 			<a href="/recipes/<%= recipes[i]._id %>" class="col-3 thumbnail" image="URL(<%= recipes[i].image %>)">
 				
