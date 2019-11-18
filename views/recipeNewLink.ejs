@@ -1,11 +1,13 @@
 <% include partials/header.ejs %>
 
+<%
+	var link = "";
+%>
 
-
-<form method="GET" action="/recipe">
-	
+<form method="POST" action="/newLink/<%= link %>" class="form">
+	<input type="text" name="recipe[link]" class="form-control">
+	<button class="btn btn-primary">Submit</button>
 </form>
-
 
 
 

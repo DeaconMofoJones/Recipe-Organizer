@@ -70,7 +70,7 @@ app.get("/recipes", function(req,res){
 app.get("/recipes/new", function(req,res){
 	res.render("recipeNew.ejs");
 })
-app.get("/recipes/newLink", function(req,res){
+app.get("/newLink", function(req,res){
 	res.render("recipeNewLink.ejs");
 })
 
@@ -84,10 +84,10 @@ app.post("/recipes", function(req,res){
 		}
 	})
 })
-app.get("/recipes/newLink/:url", function(req,res){
-	var url = req.params.url;
+app.post("/newLink", function(req,res){
+	var url = req.body.recipe["link"]
 	request(url,function(error,response,body){
-		res.send(body);
+		res.render("test.ejs",{body:body});
 	})
 })
 
