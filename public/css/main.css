@@ -36,7 +36,9 @@ h1{
 body {
 	background: rgb(72,169,166);
 	background: linear-gradient(45deg, rgba(72,169,166,1) 0%, rgba(193,102,107,1) 100%);
+	min-height: 100vh;
 }
+
 
 #formCarousel .carousel-item {
 	background-color: blue;
@@ -48,9 +50,14 @@ body {
 	margin: 0;
 }
 
+.container {
+	max-width: 100vw;
+	width: 80%;
+}
+
 .section-header {
 	margin: 0;
-	padding: 10px;
+	padding: 15px;
 	border-radius: 0;
 }
 
@@ -112,3 +119,4 @@ a:active {
 .btn {
 	font-size: 30px;
 }
+
