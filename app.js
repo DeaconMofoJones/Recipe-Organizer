@@ -108,6 +108,13 @@ app.get("/recipes/:id", function(req,res){
 		res.render("recipeShowDetails.ejs", {recipe:foundRecipe})
 	})
 })
+app.get("/recipeSearch/:id", function(req,res){
+	var recipeID = req.params.id;
+	request("https://api.spoonacular.com/recipes/"+ recipeID +"/information?includeNutrition=true&apiKey=6d53692bf5d14e8f93db61d833872edc", function(error,response,body){
+		var data = JSON.parse(body);
+		res.render("recipeSearchShowDetails.ejs", {data:data});
+	});
+})
 
 //Edit
 app.get("/recipes/:id/edit", function(req,res){

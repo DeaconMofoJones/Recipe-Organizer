@@ -12,7 +12,7 @@
 	<div class="row color-2" >
 		
 		<% for (var i = 0; i < data["results"].length; i++) { %>
-			<a href="#" class="col-3 thumbnail" image="URL(https://spoonacular.com/recipeImages/<%= data["results"][i]["id"] %>-312x231.jpg)" id="<%= data["results"][i]["id"] %>">
+			<a href="/recipeSearch/<%= data["results"][i]["id"] %>" class="col-3 thumbnail" image="URL(https://spoonacular.com/recipeImages/<%= data["results"][i]["id"] %>-312x231.jpg)" id="<%= data["results"][i]["id"] %>">
 				<h1><%= data["results"][i]["title"] %></h1>
 				<p><%= data["results"][i]["readyInMinutes"] %></p>
 				<p><%= data["results"][i]["servings"] %></p>
