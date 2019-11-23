@@ -1,11 +1,38 @@
 <% include partials/header.ejs %>
 
+<div class="container section section-thumbnail">
+	<div class="jumbotron section-header color-1">
+		</div>
+	<div class="row color-2" >
+		
+		<h1><%= data["title"] %></h1>
 
-<%= recipe._id %>
-<%= recipe.name %>
-<a href="/recipes/<%= recipe._id %>/edit">edit</a>
-<form method="POST" action="/recipes/<%= recipe._id %>?_method=DELETE">
-	<button>Delete</button>
-</form>
+		<p><img src="<%= data["image"] %>"></p>
+		<p>Servings: <%= data["servings"] %></p>
+		<p>Ready in: <%= data["readyInMinutes"] %> min</p>
+		<p>Health score: <%= data["healthScore"] %>/100</p>
+		<p>Price per serving: <%= data["pricePerServing"] %></p>
+		<% if (data["extendedIngredients"]) { -%>
+			<% for (var i = 0; i < data["extendedIngredients"].length; i++) { -%>
+				<p><%= data["extendedIngredients"][i]["name"] %> <%= data["extendedIngredients"][i]["amount"] %> <%= data["extendedIngredients"][i]["unit"] %>
+				</p>
+			<% } -%>
+		<% } %>
+		<% if ( data["nutrition"]["ingredients"] ) { -%>
+		<ul>
+			<% for (var i = 0; i < data["nutrition"]["ingredients"].length; i++) { -%>
+				<li><%= data["nutrition"]["ingredients"][i]["name"] %> <%= data["nutrition"]["ingredients"][i]["amount"] %> <%= data["nutrition"]["ingredients"][i]["unit"] %>
+				</li>
+			<% } -%>
+		</ul>
+		<% } -%>
+		
+				<a href="#">edit</a>
+		<form method="POST" action="/recipes/<%= data._id %>?_method=DELETE">
+			<button>Delete</button>
+		</form>
+	</div>
+</div>
+
 
 <% include partials/footer.ejs %>

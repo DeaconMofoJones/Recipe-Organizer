@@ -42,6 +42,19 @@ var recipeSchematic = new mongoose.Schema({
 
 var Recipe = mongoose.model("Recipe", recipeSchematic);
 
+var savedRecipeSchematic = new mongoose.Schema({
+	id:Number,
+	title:String,
+	image: String,
+	readyInMinutes: Number,
+	servings: Number,
+	nutrition: Object,
+	instructions: String,
+	extededIngredients: Array
+})
+
+var SavedRecipe = mongoose.model("SavedRecipe", savedRecipeSchematic);
+
 
 
 
@@ -57,7 +70,7 @@ app.get("/", function(req,res){
 
 //Index
 app.get("/recipes", function(req,res){
-	Recipe.find({},function(err,foundRecipes){
+	SavedRecipe.find({},function(err,foundRecipes){
 		if (err) {
 			console.log("error: "+err)
 		} else {
@@ -101,11 +114,25 @@ app.post("/newSearch", function(req,res){
 		res.render("searchResults.ejs", {data:data});
 	})
 })
+app.post("/saveRecipe/:id", function(req,res){
+	var recipeID = req.params.id;
+	request("https://api.spoonacular.com/recipes/"+ recipeID +"/information?includeNutrition=true&apiKey=6d53692bf5d14e8f93db61d833872edc", function(error,response,body){
+		var data = JSON.parse(body);
+		SavedRecipe.create(data,function(error,sRecipe){
+			if (error) {
+				console.log(error);
+			} else {
+				res.redirect("/recipes");
+			}
+		})
+	});
+})
 
 //Show
 app.get("/recipes/:id", function(req,res){
-	Recipe.findById(req.params.id, function(err,foundRecipe){
-		res.render("recipeShowDetails.ejs", {recipe:foundRecipe})
+	SavedRecipe.findById(req.params.id, function(err,foundRecipe){
+		console.log("found recipe: "+ foundRecipe)
+		res.render("recipeShowDetails.ejs", {data:foundRecipe})
 	})
 })
 app.get("/recipeSearch/:id", function(req,res){
@@ -118,7 +145,7 @@ app.get("/recipeSearch/:id", function(req,res){
 
 //Edit
 app.get("/recipes/:id/edit", function(req,res){
-	Recipe.findById(req.params.id, function(err,foundRecipe){
+	SavedRecipe.findById(req.params.id, function(err,foundRecipe){
 		if (err) {
 			console.log("error: "+ err)
 		} else{
@@ -140,7 +167,7 @@ app.put("/recipes/:id", function(req,res){
 
 //Destroy
 app.delete("/recipes/:id", function(req,res){
-	Recipe.findByIdAndDelete(req.params.id, function(err, deletedRecipe){
+	SavedRecipe.findByIdAndDelete(req.params.id, function(err, deletedRecipe){
 		if (err) {
 			console.log("err: "+ err)
 		} else {

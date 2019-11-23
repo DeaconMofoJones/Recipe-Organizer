@@ -16,7 +16,7 @@
 		<% for (var i = 0; i < recipes.length; i++) { %>
 			<a href="/recipes/<%= recipes[i]._id %>" class="col-3 thumbnail" image="URL(<%= recipes[i].image %>)">
 				
-					<h1><%= recipes[i].name %></h1>
+					<h1><%= recipes[i]["title"] %></h1>
 				<div class="cover">
 				</div>
 			</a>

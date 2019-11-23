@@ -71,7 +71,8 @@ body {
 .section-thumbnail .thumbnail {
 	transition: all .4s;
 	color: white;
-	background-color: black;
+	padding: 0;
+	background-size: cover;
 	
 }
 

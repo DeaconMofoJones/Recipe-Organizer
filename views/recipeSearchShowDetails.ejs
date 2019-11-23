@@ -17,17 +17,18 @@
 				<p><%= data["extendedIngredients"][i]["name"] %> <%= data["extendedIngredients"][i]["amount"] %> <%= data["extendedIngredients"][i]["unit"] %>
 				</p>
 			<% } -%>
-		<% } else if ( data["ingredients"] ) { -%>
+		<% } %>
+		<% if ( data["nutrition"]["ingredients"] ) { -%>
 		<ul>
-			<% for (var i = 0; i < data["ingredients"].length; i++) { -%>
-				<li><%= data["ingredients"][i]["name"] %> <%= data["ingredients"][i]["amount"] %> <%= data["ingredients"][i]["unit"] %>
+			<% for (var i = 0; i < data["nutrition"]["ingredients"].length; i++) { -%>
+				<li><%= data["nutrition"]["ingredients"][i]["name"] %> <%= data["nutrition"]["ingredients"][i]["amount"] %> <%= data["nutrition"]["ingredients"][i]["unit"] %>
 				</li>
 			<% } -%>
 		</ul>
 		<% } -%>
-		
-		<% console.log(data) %>
-
+		<form action="/saveRecipe/<%= data["id"] %>" method="POST">
+			<button class="btn btn-primary">Save</button>
+		</form>
 	</div>
 </div>
 
