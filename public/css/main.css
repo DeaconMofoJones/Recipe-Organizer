@@ -66,13 +66,12 @@ body {
 
 }
 
-.section:nth-of-type(odd) {
-	background-color: #f0ebb1;
-}
+
 
 .section-thumbnail .thumbnail {
 	transition: all .4s;
 	color: white;
+	background-color: black;
 	
 }
 

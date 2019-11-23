@@ -73,6 +73,9 @@ app.get("/recipes/new", function(req,res){
 app.get("/newLink", function(req,res){
 	res.render("recipeNewLink.ejs");
 })
+app.get("/newSearch", function(req,res){
+	res.render("recipeNewSearch.ejs");
+})
 
 //Create
 app.post("/recipes", function(req,res){
@@ -88,6 +91,14 @@ app.post("/newLink", function(req,res){
 	var url = req.body.recipe["link"]
 	request(url,function(error,response,body){
 		res.render("test.ejs",{body:body});
+	})
+})
+app.post("/newSearch", function(req,res){
+	var userSearch = req.body.recipe["search"];
+	request("https://api.spoonacular.com/recipes/search?query="+userSearch+"&number=5&apiKey=6d53692bf5d14e8f93db61d833872edc", function(error,response,body){
+		var data = JSON.parse(body);
+		console.log(data);
+		res.render("searchResults.ejs", {data:data});
 	})
 })
 
