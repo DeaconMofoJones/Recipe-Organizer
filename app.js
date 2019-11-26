@@ -50,6 +50,7 @@ var savedRecipeSchematic = new mongoose.Schema({
 	servings: Number,
 	nutrition: Object,
 	instructions: String,
+	analyzedInstructions: Array,
 	extendedIngredients: Array
 })
 
