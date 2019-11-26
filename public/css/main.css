@@ -128,8 +128,8 @@ a:active {
 	border-radius: 5px;
 }
 
-li.green {
-	background-color: green;
+li.checkmarked {
+	background-color: #2bffb5;
 }
 
 
