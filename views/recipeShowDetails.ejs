@@ -37,8 +37,7 @@
 			<% } -%>
 			</div>
 
-		<% } %>
-		<% if ( data["nutrition"]["ingredients"] ) { -%>
+		<% } else  if ( data["nutrition"]["ingredients"] ) { %>
 		<div class="card">
 			<div class="card-header">
 				Ingredients
@@ -50,7 +49,7 @@
 				<% } -%>
 			</ul>
 		</div>
-		<% } -%>
+		<% } %>
 		
 				<a href="#">edit</a>
 		<form method="POST" action="/recipes/<%= data._id %>?_method=DELETE">

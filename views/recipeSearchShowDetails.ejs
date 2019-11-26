@@ -13,19 +13,20 @@
 		<p>Health score: <%= data["healthScore"] %>/100</p>
 		<p>Price per serving: <%= data["pricePerServing"] %></p>
 		<% if (data["extendedIngredients"]) { -%>
+			<ul>
 			<% for (var i = 0; i < data["extendedIngredients"].length; i++) { -%>
-				<p><%= data["extendedIngredients"][i]["name"] %> <%= data["extendedIngredients"][i]["amount"] %> <%= data["extendedIngredients"][i]["unit"] %>
-				</p>
+				<li><%= data["extendedIngredients"][i]["name"] %> <%= data["extendedIngredients"][i]["amount"] %> <%= data["extendedIngredients"][i]["unit"] %>
+				</li>
 			<% } -%>
-		<% } %>
-		<% if ( data["nutrition"]["ingredients"] ) { -%>
+			</ul>
+		<% } else if ( data["nutrition"]["ingredients"] ) { %>
 		<ul>
 			<% for (var i = 0; i < data["nutrition"]["ingredients"].length; i++) { -%>
 				<li><%= data["nutrition"]["ingredients"][i]["name"] %> <%= data["nutrition"]["ingredients"][i]["amount"] %> <%= data["nutrition"]["ingredients"][i]["unit"] %>
 				</li>
 			<% } -%>
 		</ul>
-		<% } -%>
+		<% } %>
 		<form action="/saveRecipe/<%= data["id"] %>" method="POST">
 			<button class="btn btn-primary">Save</button>
 		</form>
