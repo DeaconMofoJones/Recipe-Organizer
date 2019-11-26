@@ -60,7 +60,7 @@
 	</div>
 	<div class="col-6">
 		<% if (data["analyzedInstructions"]) { -%>
-			<ul>
+			<ul class="analyzed-instructions-list">
 				<% for (var i = 0; i < data["analyzedInstructions"][0]["steps"].length; i++) { -%>
 					<li>
 						<%= data["analyzedInstructions"][0]["steps"][i]["step"] %>
