@@ -62,7 +62,7 @@
 		<% if (data["analyzedInstructions"]) { -%>
 			<ul class="analyzed-instructions-list">
 				<% for (var i = 0; i < data["analyzedInstructions"][0]["steps"].length; i++) { -%>
-					<li>
+					<li class="analyzed-instructions-list-item">
 						<%= data["analyzedInstructions"][0]["steps"][i]["step"] %>
 						<p>Equipment: <%= data["analyzedInstructions"][0]["steps"][i]["equipment"] %></p>
 						<p>Ingredients: 
@@ -84,7 +84,7 @@
 
 
 <script type="text/javascript">
-	$("li").click(function(){
+	$(".analyzed-instructions-list-item").click(function(){
 		$(this).toggleClass("checkmarked");
 	})
 </script>
