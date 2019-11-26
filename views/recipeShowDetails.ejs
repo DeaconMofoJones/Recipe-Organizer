@@ -25,25 +25,38 @@
 			
 	</div>
 	<div class="row color-2">
+		<div class="col-6">
 		<% if (data["extendedIngredients"]) { -%>
+		<div class="card">
+			<div class="card-header">
+				Ingredients
+			</div>
 			<% for (var i = 0; i < data["extendedIngredients"].length; i++) { -%>
 				<p><%= data["extendedIngredients"][i]["name"] %> <%= data["extendedIngredients"][i]["amount"] %> <%= data["extendedIngredients"][i]["unit"] %>
 				</p>
 			<% } -%>
+			</div>
+
 		<% } %>
 		<% if ( data["nutrition"]["ingredients"] ) { -%>
-		<ul>
-			<% for (var i = 0; i < data["nutrition"]["ingredients"].length; i++) { -%>
-				<li><%= data["nutrition"]["ingredients"][i]["name"] %> <%= data["nutrition"]["ingredients"][i]["amount"] %> <%= data["nutrition"]["ingredients"][i]["unit"] %>
-				</li>
-			<% } -%>
-		</ul>
+		<div class="card">
+			<div class="card-header">
+				Ingredients
+			</div>
+			<ul class="list-group list-group-flush">
+				<% for (var i = 0; i < data["nutrition"]["ingredients"].length; i++) { -%>
+					<li class="list-group-item"><%= data["nutrition"]["ingredients"][i]["name"] %> <%= data["nutrition"]["ingredients"][i]["amount"] %> <%= data["nutrition"]["ingredients"][i]["unit"] %>
+					</li>
+				<% } -%>
+			</ul>
+		</div>
 		<% } -%>
 		
 				<a href="#">edit</a>
 		<form method="POST" action="/recipes/<%= data._id %>?_method=DELETE">
 			<button>Delete</button>
 		</form>
+	</div>
 	</div>
 </div>
 
