@@ -59,7 +59,25 @@
 		</form>
 	</div>
 	<div class="col-6">
-		<p><%= data["instructions"] %></p>
+		<% if (data["analyzedInstructions"]) { -%>
+			<ul>
+				<% for (var i = 0; i < data["analyzedInstructions"].length; i++) { -%>
+					<li>
+						<%= data["analyzedInstructions"][0]["steps"][i]["step"] %>
+						<p>Equipment: <%= data["analyzedInstructions"][0]["steps"][i]["equipment"] %></p>
+						<p>Ingredients: 
+							<%= data["analyzedInstructions"][0]["steps"][i]["ingredients"] %>
+							<% for (var j = 0; j < data["analyzedInstructions"][0]["steps"][i]["ingredients"].length; j++) { -%>
+									<%= data["analyzedInstructions"][0]["steps"][i]["ingredients"][j]+" " %>
+								<% } -%>	
+						</p>
+					</li>
+				<% } -%>
+			</ul>
+		<% } else { -%>
+			<p><%= data["instructions"] %></p>
+		<% } -%>
+		
 	</div>
 	</div>
 </div>
