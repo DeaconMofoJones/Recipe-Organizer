@@ -31,11 +31,13 @@
 			<div class="card-header">
 				Ingredients
 			</div>
+			<ul class="list-group list-group-flush">
 			<% for (var i = 0; i < data["extendedIngredients"].length; i++) { -%>
-				<p><%= data["extendedIngredients"][i]["name"] %> <%= data["extendedIngredients"][i]["amount"] %> <%= data["extendedIngredients"][i]["unit"] %>
-				</p>
+				<li class="list-group-item"><%= data["extendedIngredients"][i]["name"] %> <%= data["extendedIngredients"][i]["amount"] %> <%= data["extendedIngredients"][i]["unit"] %>
+				</li>
 			<% } -%>
-			</div>
+			</ul>
+		</div>
 
 		<% } else  if ( data["nutrition"]["ingredients"] ) { %>
 		<div class="card">
