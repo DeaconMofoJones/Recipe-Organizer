@@ -1,4 +1,46 @@
 <% include partials/header.ejs %>
+
+<%
+	
+	function DecimalToMixedFraction(decimal) {
+		var string = "";
+		var wholeNumber = "";
+		var fraction = "";
+		var newFraction;
+		console.log(decimal);
+		string = decimal.toString();
+		var periodEncountered = false;
+		for (var i = 0; i < string.length; i++) {
+			if (string[i]==".") {
+				periodEncountered = true;
+			}
+			if (!periodEncountered) {
+				wholeNumber += string[i];
+			} else if (periodEncountered&&string[i]!=".") {
+				fraction += string[i];
+			}
+		}
+		if (fraction=="75") {
+			newFraction = "3/4"
+		} else if (fraction == "5") {
+			newFraction = "1/2"
+		} else if (fraction == "25") {
+			newFraction = "1/4"
+		}
+
+		if (wholeNumber=="0") {
+			return newFraction;
+		} else {
+			if (newFraction) {
+				return wholeNumber+" "+newFraction;	
+			} else {
+				return wholeNumber;
+			}
+		}
+		
+	}
+ %>
+
 <div class="container ">
 	<div class="row color-2">
 		<div class="col-12">
@@ -33,7 +75,7 @@
 			</div>
 			<ul class="list-group list-group-flush">
 			<% for (var i = 0; i < data["extendedIngredients"].length; i++) { -%>
-				<li class="list-group-item"><%= data["extendedIngredients"][i]["name"] %> <%= data["extendedIngredients"][i]["amount"] %> <%= data["extendedIngredients"][i]["unit"] %>
+				<li class="list-group-item"><%= data["extendedIngredients"][i]["name"] %> <%= DecimalToMixedFraction(data["extendedIngredients"][i]["amount"])  %> <%= data["extendedIngredients"][i]["unit"] %>
 				</li>
 			<% } -%>
 			</ul>
@@ -88,5 +130,7 @@
 		$(this).toggleClass("checkmarked");
 	})
 </script>
+
+
 
 <% include partials/footer.ejs %>
