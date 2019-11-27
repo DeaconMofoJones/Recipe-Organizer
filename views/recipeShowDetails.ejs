@@ -73,9 +73,11 @@
 			<div class="card-header">
 				Ingredients
 			</div>
-			<ul class="list-group list-group-flush">
+			<ul class="list-group list-group-flush ingredients-list">
 			<% for (var i = 0; i < data["extendedIngredients"].length; i++) { -%>
-				<li class="list-group-item"><%= data["extendedIngredients"][i]["name"] %> <%= DecimalToMixedFraction(data["extendedIngredients"][i]["amount"])  %> <%= data["extendedIngredients"][i]["unit"] %>
+				<li class="list-group-item ingredients-list-item" index="<%= i %>"><%= data["extendedIngredients"][i]["name"] %> <%= DecimalToMixedFraction(data["extendedIngredients"][i]["amount"])  %> <%= data["extendedIngredients"][i]["unit"] %>
+					<i class="far fa-square checkmark-right ingredient-<%= i %>"></i>
+					<i class="fas fa-check-square checkmark-right invisible ingredient-<%= i %>"></i>
 				</li>
 			<% } -%>
 			</ul>
@@ -89,6 +91,7 @@
 			<ul class="list-group list-group-flush">
 				<% for (var i = 0; i < data["nutrition"]["ingredients"].length; i++) { -%>
 					<li class="list-group-item"><%= data["nutrition"]["ingredients"][i]["name"] %> <%= data["nutrition"]["ingredients"][i]["amount"] %> <%= data["nutrition"]["ingredients"][i]["unit"] %>
+
 					</li>
 				<% } -%>
 			</ul>
@@ -131,6 +134,11 @@
 	})
 </script>
 
+<script type="text/javascript">
+	$(".ingredients-list-item").click(function(){
+		$(".ingredient-"+$(this).attr("index")).toggleClass("invisible");
+	})
+</script>
 
 
 <% include partials/footer.ejs %>

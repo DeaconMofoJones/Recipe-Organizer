@@ -132,5 +132,11 @@ li.checkmarked {
 	background-color: #2bffb5;
 }
 
+.checkmark-right {
+	right: 10px;
+	position: absolute;
+}
 
-
+.invisible {
+	display: none;
+}
