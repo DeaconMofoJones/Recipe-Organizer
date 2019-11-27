@@ -75,11 +75,17 @@
 			</div>
 			<ul class="list-group list-group-flush">
 			<% for (var i = 0; i < data["extendedIngredients"].length; i++) { -%>
-				<li class="list-group-item"><%= data["extendedIngredients"][i]["name"] %> <%= DecimalToMixedFraction(data["extendedIngredients"][i]["amount"])  %> <%= data["extendedIngredients"][i]["unit"] %>
+				<li class="list-group-item"><%= data["extendedIngredients"][i]["name"] %> <%= DecimalToMixedFraction(data["extendedIngredients"][i]["amount"])  %> <%= data["extendedIngredients"][i]["unit"] %> <a href="#ingredient-<%= i %>" data-toggle="collapse" aria-expanded="false" aria-controls="ingredient<%= i %>"><i class="fas fa-chevron-down expand-icon"></i></a>
+					<div class="collapse" id="ingredient-<%= i %>">
+					  <div class="card card-body">
+					    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+					  </div>
+					</div>
 				</li>
 			<% } -%>
 			</ul>
 		</div>
+
 
 		<% } else  if ( data["nutrition"]["ingredients"] ) { %>
 		<div class="card">
