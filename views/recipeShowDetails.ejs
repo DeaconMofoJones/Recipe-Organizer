@@ -41,33 +41,31 @@
 	}
  %>
 
-<div class="container ">
-	<div class="row color-2">
-		<div class="col-12">
-			<h1><%= data["title"] %></h1>
+
+<div class="container">
+	
+	<div class="row">
+		<div class="col title-div">
+			<h1 class="title"><%= data["title"] %></h1>
 		</div>
 	</div>
-	
-</div>
-<div class="container">
-	<div class="row color-2 " >
-			
-			
+
+	<div class="row ">
 		<div class="col-6">
 			<p><img src="<%= data["image"] %>"></p>
 		</div>
-		<div class="col-6">
-			<p>Servings: <%= data["servings"] %></p>
-			<p>Ready in: <%= data["readyInMinutes"] %> min</p>
-			<p>Health score: <%= data["healthScore"] %>/100</p>
-			<p>Price per serving: <%= data["pricePerServing"] %></p>
+		<div class="col">
+			<ul class="color-white">
+				<li>Servings: <%= data["servings"] %></li>
+				<li>Ready in: <%= data["readyInMinutes"] %> min</li>
+				<li>Health score: <%= data["healthScore"] %>/100</li>
+				<li>Price per serving: <%= data["pricePerServing"] %></li>
+			</ul>
 		</div>
-			
-			
-			
 	</div>
-	<div class="row color-2">
-		<div class="col-6">
+		
+	<div class="row ">
+		<div class="col-3">
 		<% if (data["extendedIngredients"]) { -%>
 		<div class="card">
 			<div class="card-header">
@@ -103,7 +101,7 @@
 			<button>Delete</button>
 		</form>
 	</div>
-	<div class="col-6">
+	<div class="col">
 		<% if (data["analyzedInstructions"]) { -%>
 			<ul class="analyzed-instructions-list">
 				<% for (var i = 0; i < data["analyzedInstructions"][0]["steps"].length; i++) { -%>
