@@ -48,6 +48,8 @@ var savedRecipeSchematic = new mongoose.Schema({
 	image: String,
 	readyInMinutes: Number,
 	servings: Number,
+	spoonacularScore: Number,
+	healthScore:Number,
 	nutrition: Object,
 	instructions: String,
 	analyzedInstructions: Array,
