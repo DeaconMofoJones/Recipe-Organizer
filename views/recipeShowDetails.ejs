@@ -103,7 +103,7 @@
 		</form>
 	</div>
 	<div class="col">
-		<% if (data["analyzedInstructions"]) { -%>
+		<% if (data["analyzedInstructions"][0]) { -%>
 			<ul class="analyzed-instructions-list">
 				<% for (var i = 0; i < data["analyzedInstructions"][0]["steps"].length; i++) { -%>
 					<li class="analyzed-instructions-list-item">
@@ -118,10 +118,11 @@
 					</li>
 				<% } -%>
 			</ul>
-		<% } else if (data["instructions"]) { -%>
+		<% } else if (data["instructions"]!=null) { -%>
 			<p><%= data["instructions"] %></p>
+		<% } else if (data["instrunctions"]==null) { -%>
+			<p> There are no instructions for this recipe </p>
 		<% } -%>
-		
 	</div>
 	</div>
 </div>
