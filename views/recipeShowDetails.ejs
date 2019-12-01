@@ -107,9 +107,9 @@
 			<ul class="analyzed-instructions-list">
 				<% for (var i = 0; i < data["analyzedInstructions"][0]["steps"].length; i++) { -%>
 					<li class="analyzed-instructions-list-item">
-						<%= data["analyzedInstructions"][0]["steps"][i]["step"] %>
+						<p><%= data["analyzedInstructions"][0]["steps"][i]["step"] %></p>
 						<p>Equipment: <%= data["analyzedInstructions"][0]["steps"][i]["equipment"] %></p>
-						<p>Ingredients: 
+						<p>Ingredients:
 							<%= data["analyzedInstructions"][0]["steps"][i]["ingredients"] %>
 							<% for (var j = 0; j < data["analyzedInstructions"][0]["steps"][i]["ingredients"].length; j++) { -%>
 									<%= data["analyzedInstructions"][0]["steps"][i]["ingredients"][j]+" " %>
