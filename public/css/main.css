@@ -29,11 +29,13 @@
 	border-color: #E75A7C;
 }
 
-.container {
+.container, .box-shadow {
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
 }
 
+
 html {
+
 	font-size: 18px;
 }
 
@@ -43,6 +45,7 @@ h1{
 }
 
 body {
+	font-family: 'Overpass', sans-serif;
 	background: linear-gradient(90deg, rgba(123,189,122,0.5578606442577031) 0%, rgba(97,251,205,0.5942752100840336) 100%);
 	min-height: 100vh;
 }
