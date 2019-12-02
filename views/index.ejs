@@ -14,23 +14,24 @@
 <div class="row section section-thumbnail">
 	<div class="col-12">
 		<div class="jumbotron section-header color-white">
-			Your Saved Recipes
-			<a href="/recipes/new" class="btn btn-outline-primary color-4 newRecipeButton" role="button"><i class="fas fa-plus"></i></a>
-			<a href="/newSearch" class="btn btn-outline-primary color-4 newRecipeButton" role="button"><i class="fas fa-search"></i></a>
+			<h2>Your Saved Recipes
+				<a href="/recipes/new" class="btn btn-outline-primary color-4 newRecipeButton" role="button"><i class="fas fa-plus"></i></a>
+				<a href="/newSearch" class="btn btn-outline-primary color-4 newRecipeButton" role="button"><i class="fas fa-search"></i></a>
+			</h1>
 		</div>		
 	</div>
 	
 	<div class="col-12" >
 		<div class="row color-white">
 			<% for (var i = 0; i < recipes.length; i++) { %>
-				<a href="/recipes/<%= recipes[i]._id %>" class="col-3 thumbnail" image="URL(<%= recipes[i].image %>)">
+				<a href="/recipes/<%= recipes[i]._id %>" class="col-md-3 col-sm-4 col-6 thumbnail" image="URL(<%= recipes[i].image %>)">
 					
 						<h1><%= recipes[i]["title"] %></h1>
 					<div class="cover">
 					</div>
 				</a>
 			<% } %>
-				<a href="/newSearch" class="col-3 thumbnail newRecipe-thumbnail btn btn-outline">
+				<a href="/newSearch" class="col-md-3 col-sm-4 col-6 thumbnail newRecipe-thumbnail btn btn-outline">
 						<i class="fas fa-plus-circle"></i>
 				</a>
 		</div>
@@ -51,6 +52,11 @@
 	  	var image = $(tn).attr("image");
 	  	$(tn).css({"background-image": image});
 	  }
+	});
+
+	jQuery(window).resize(function() {
+		var width = $(".thumbnail").width();
+		$(".thumbnail").css({"height":width+"px"});
 	});
 
 </script>
