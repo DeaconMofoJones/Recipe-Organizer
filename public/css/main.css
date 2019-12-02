@@ -192,3 +192,26 @@ img {
 .color-white {
 	background-color: white;
 }
+
+.section-thumbnail .newRecipe-thumbnail {
+	padding: 10px;
+}
+
+.newRecipe-thumbnail{
+	background-color: #e3e3e3;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	color: var(--color-4)
+}
+
+.newRecipe-thumbnail:hover{
+	background-color: var(--color-4);
+}
+
+.newRecipe-thumbnail i {
+	width: 100%;
+	font-size: 5em;
+	color: inherit;
+}
+
