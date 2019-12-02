@@ -24,14 +24,14 @@
 	<div class="col-12" >
 		<div class="row color-white">
 			<% for (var i = 0; i < recipes.length; i++) { %>
-				<a href="/recipes/<%= recipes[i]._id %>" class="col-md-3 col-sm-4 col-6 thumbnail" image="URL(<%= recipes[i].image %>)">
+				<a href="/recipes/<%= recipes[i]._id %>" class="col-xl-3 col-lg-4 col-6 thumbnail" image="URL(<%= recipes[i].image %>)">
 					
 						<h1><%= recipes[i]["title"] %></h1>
 					<div class="cover">
 					</div>
 				</a>
 			<% } %>
-				<a href="/newSearch" class="col-md-3 col-sm-4 col-6 thumbnail newRecipe-thumbnail btn btn-outline">
+				<a href="/newSearch" class="col-lg-3 col-md-4 col-6 thumbnail newRecipe-thumbnail btn btn-outline">
 						<i class="fas fa-plus-circle"></i>
 				</a>
 		</div>
