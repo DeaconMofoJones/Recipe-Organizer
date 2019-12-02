@@ -45,19 +45,21 @@
 
 	
 	<div class="row">
-		<div class="col title-div">
-			<h1 class="title"><%= data["title"] %></h1>
+		<div class="col">
+			<div class="card title-div">
+				<h1 class="title"><%= data["title"] %></h1>
+			</div>
 		</div>
 	</div>
 
 	<div class="row ">
 		<div class="col-12 col-md-6">
-			<div class="container">
-				<p><img src="<%= data["image"] %>"></p>
-			</div>
+			
+				<img src="<%= data["image"] %>" class="box-shadow">
+			
 		</div>
-		<div class="col">
-			<div class="container">
+		<div class="col recipe-stats-column">
+			<div class="box-shadow">
 			<ul class="color-white">
 
 					<li>Servings: <%= data["servings"] %></li>
@@ -109,6 +111,12 @@
 	</div>
 	<div class="col">
 		<% if (data["analyzedInstructions"][0]) { -%>
+			<div class="card">
+				<div class="card-header">
+					Instructions
+				</div>	
+			</div>
+			
 			<ul class="analyzed-instructions-list">
 				<% for (var i = 0; i < data["analyzedInstructions"][0]["steps"].length; i++) { -%>
 					<li class="analyzed-instructions-list-item box-shadow">

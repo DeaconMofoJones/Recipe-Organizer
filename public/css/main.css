@@ -33,21 +33,26 @@
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
 }
 
+* {
+	transition: all 0.2s;
+}
 
 html {
 
-	font-size: 18px;
+	font-size: 22px;
 }
 
 h1{
 	padding: 0;
 	margin: 0;
+	font-weight: 800;
 }
 
 body {
 	font-family: 'Overpass', sans-serif;
 	background: linear-gradient(90deg, rgba(123,189,122,0.5578606442577031) 0%, rgba(97,251,205,0.5942752100840336) 100%);
 	min-height: 100vh;
+
 }
 
 
@@ -58,7 +63,7 @@ body {
 }
 
 .row {
-	margin: 0;
+	margin: 0 0 20px 0;
 }
 
 .container {
@@ -77,7 +82,9 @@ body {
 
 }
 
-
+.recipe-stats-column li{
+	padding: 20px;
+}
 
 .section-thumbnail .thumbnail {
 	transition: all .4s;
@@ -134,13 +141,21 @@ a:active {
 .analyzed-instructions-list li {
 	list-style: none;
 	background-color: rgba(255,255,255, 1);
-	padding: 10px;
-	margin: 2px;
+	padding: 20px;
+	margin-bottom: 2px;
 	border-radius: 5px;
 	line-height: 2em;
 }
 
+.analyzed-instructions-list li:hover {
+	background-color: rgba(240,240,240, 1);
+}
+
 li.checkmarked {
+	background-color: #2bffb5;
+}
+
+li.checkmarked:hover {
 	background-color: #2bffb5;
 }
 
@@ -165,6 +180,8 @@ ul {
     display:flex;
     align-items: center;
     justify-content: center;
+    background-color: white;
+    
 }
 
 img {
