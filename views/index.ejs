@@ -2,7 +2,7 @@
 
 <div class="row">
 	<div class="col">
-		<div class="jumbotron title-div">
+		<div class="jumbotron title-div box-shadow">
 			<h1>Welcome to your recipe book!</h1>	
 		</div>
 	</div>
@@ -12,30 +12,30 @@
 
 
 <div class="row section section-thumbnail">
-	<div class="col-12">
-		<div class="jumbotron section-header color-white">
-			<h2>Your Saved Recipes
-				<a href="/recipes/new" class="btn btn-outline-primary color-4 newRecipeButton" role="button"><i class="fas fa-plus"></i></a>
-				<a href="/newSearch" class="btn btn-outline-primary color-4 newRecipeButton" role="button"><i class="fas fa-search"></i></a>
-			</h2>
-		</div>		
-	</div>
-	
-	<div class="col-12" >
-		<div class="row color-white">
-			<% for (var i = 0; i < recipes.length; i++) { %>
-				<a href="/recipes/<%= recipes[i]._id %>" class="col-xl-3 col-lg-4 col-6 thumbnail" image="URL(<%= recipes[i].image %>)">
-					
-					<h2 class="thumbnail-title"><%= recipes[i]["title"] %></h2>
-					<div class="cover">
-					</div>
-				</a>
-			<% } %>
-				<a href="/newSearch" class="col-xl-3 col-lg-4 col-6 thumbnail newRecipe-thumbnail btn btn-outline">
-						<i class="fas fa-plus-circle"></i>
-				</a>
+		<div class="col-12">
+			<div class="jumbotron section-header color-white box-shadow">
+				<h2>Your Saved Recipes
+					<a href="/recipes/new" class="btn btn-outline-primary color-4 newRecipeButton" role="button"><i class="fas fa-plus"></i></a>
+					<a href="/newSearch" class="btn btn-outline-primary color-4 newRecipeButton" role="button"><i class="fas fa-search"></i></a>
+				</h2>
+			</div>		
 		</div>
-	</div>
+		
+		<div class="col-12" >
+			<div class="row color-white box-shadow">
+				<% for (var i = 0; i < recipes.length; i++) { %>
+					<a href="/recipes/<%= recipes[i]._id %>" class="col-xl-3 col-lg-4 col-6 thumbnail" image="URL(<%= recipes[i].image %>)">
+						
+						<h2 class="thumbnail-title"><%= recipes[i]["title"] %></h2>
+						<div class="cover">
+						</div>
+					</a>
+				<% } %>
+					<a href="/newSearch" class="col thumbnail newRecipe-thumbnail btn btn-outline">
+							<i class="fas fa-plus-circle"></i>
+					</a>
+			</div>
+		</div>
 </div>
 
 
