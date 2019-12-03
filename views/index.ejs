@@ -55,8 +55,10 @@
 	});
 
 	jQuery(window).resize(function() {
+		$("*").css({"transition": "none"})
 		var width = $(".thumbnail").width();
 		$(".thumbnail").css({"height":width+"px"});
+		$("*").css({"transition": "all 0.2s"})
 	});
 
 </script>
