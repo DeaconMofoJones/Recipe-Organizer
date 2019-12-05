@@ -4,6 +4,8 @@ request 		=require("request"),
 mongoose		= require("mongoose"),
 methodOverride 	= require("method-override"),
 bodyParser 		= require("body-parser"),
+SavedRecipe		= require("./models/SavedRecipe.js"),
+Recipe 			= require("./models/Recipe.js"),
 port			= process.env.PORT || 3000,
 mongoLocal		= "mongodb://localhost:27017/recipes",
 mongoServer		= "mongodb+srv://deaconmofojones:Chuletas1@merchapp-a2iob.azure.mongodb.net/test?retryWrites=true&w=majority"
@@ -28,35 +30,9 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 
-var recipeSchematic = new mongoose.Schema({
-	name: String,
-	image: String,
-	mealType: String,
-	protein: String,
-	calories: Number,
-	cookTimeInMinutes:Number,
-	servingSize: Number,
-	ingredients: String,
-	directions: String
-})
 
-var Recipe = mongoose.model("Recipe", recipeSchematic);
 
-var savedRecipeSchematic = new mongoose.Schema({
-	id:Number,
-	title:String,
-	image: String,
-	readyInMinutes: Number,
-	servings: Number,
-	spoonacularScore: Number,
-	healthScore:Number,
-	nutrition: Object,
-	instructions: String,
-	analyzedInstructions: Array,
-	extendedIngredients: Array
-})
 
-var SavedRecipe = mongoose.model("SavedRecipe", savedRecipeSchematic);
 
 
 
