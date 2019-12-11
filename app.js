@@ -78,7 +78,7 @@ app.get("/recipes", isLoggedIn ,function(req,res){
 		if (err) {
 			console.log("error: "+err)
 		} else {
-			res.render("index.ejs",{recipes:foundRecipes})
+			res.render("index.ejs",{recipes:foundRecipes, user:req.user})
 		}
 	})
 })
