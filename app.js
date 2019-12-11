@@ -26,7 +26,7 @@ mongoose.connect(mongoLocal, { useNewUrlParser:true }, function(err){
 		console.log("successfully connected to local mongo database")
 	}
 });
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 
