@@ -69,7 +69,7 @@ passport.deserializeUser(User.deserializeUser());
 
 //Index
 app.get("/", isLoggedIn ,function(req,res){
-	res.render("home");
+	res.render("home", {user:req.user});
 })
 
 //Index
@@ -85,13 +85,13 @@ app.get("/recipes", isLoggedIn ,function(req,res){
 
 //New
 app.get("/recipes/new", isLoggedIn ,function(req,res){
-	res.render("recipeNew.ejs");
+	res.render("recipeNew.ejs", {user:req.user});
 })
 app.get("/newLink", function(req,res){
-	res.render("recipeNewLink.ejs");
+	res.render("recipeNewLink.ejs", {user:req.user});
 })
 app.get("/newSearch", function(req,res){
-	res.render("recipeNewSearch.ejs");
+	res.render("recipeNewSearch.ejs", {user:req.user});
 })
 
 //Create
@@ -107,7 +107,7 @@ app.post("/recipes", isLoggedIn ,function(req,res){
 app.post("/newLink", isLoggedIn ,function(req,res){
 	var url = req.body.recipe["link"]
 	request(url,function(error,response,body){
-		res.render("test.ejs",{body:body});
+		res.render("test.ejs",{body:body, user:req.user});
 	})
 })
 app.post("/newSearch", isLoggedIn ,function(req,res){
@@ -115,7 +115,7 @@ app.post("/newSearch", isLoggedIn ,function(req,res){
 	request("https://api.spoonacular.com/recipes/search?query="+userSearch+"&number=5&apiKey=6d53692bf5d14e8f93db61d833872edc", function(error,response,body){
 		var data = JSON.parse(body);
 		console.log(data);
-		res.render("searchResults.ejs", {data:data});
+		res.render("searchResults.ejs", {data:data, user:req.user});
 	})
 })
 app.post("/saveRecipe/:id", isLoggedIn ,function(req,res){
@@ -136,14 +136,14 @@ app.post("/saveRecipe/:id", isLoggedIn ,function(req,res){
 app.get("/recipes/:id", isLoggedIn ,function(req,res){
 	SavedRecipe.findById(req.params.id, function(err,foundRecipe){
 		console.log("found recipe: "+ foundRecipe)
-		res.render("recipeShowDetails.ejs", {data:foundRecipe})
+		res.render("recipeShowDetails.ejs", {data:foundRecipe, user:req.user})
 	})
 })
 app.get("/recipeSearch/:id", isLoggedIn ,function(req,res){
 	var recipeID = req.params.id;
 	request("https://api.spoonacular.com/recipes/"+ recipeID +"/information?includeNutrition=true&apiKey=6d53692bf5d14e8f93db61d833872edc", function(error,response,body){
 		var data = JSON.parse(body);
-		res.render("recipeSearchShowDetails.ejs", {data:data});
+		res.render("recipeSearchShowDetails.ejs", {data:data, user:req.user});
 	});
 })
 
@@ -153,7 +153,7 @@ app.get("/recipes/:id/edit", isLoggedIn ,function(req,res){
 		if (err) {
 			console.log("error: "+ err)
 		} else{
-			res.render("recipeEdit.ejs", {recipe:foundRecipe})
+			res.render("recipeEdit.ejs", {recipe:foundRecipe, user:req.user})
 		}
 	})
 })
@@ -191,7 +191,7 @@ app.delete("/recipes/:id", isLoggedIn ,function(req,res){
 
 //register form
 app.get("/register", function(req,res){
-	res.render("register");
+	res.render("register", {user:req.user});
 })
 
 //handle user sign up
@@ -218,7 +218,7 @@ app.post("/register", function(req,res){
 
 //show login form
 app.get("/login", function(req,res){
-	res.render("login");
+	res.render("login", {user:req.user});
 })
 
 //handle login
