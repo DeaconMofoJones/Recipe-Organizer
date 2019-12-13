@@ -34,7 +34,7 @@
 }
 
 * {
-	transition: all 0.2s;
+	/*transition: all 0.2s;*/
 }
 
 html {
@@ -233,3 +233,14 @@ img {
 	color: inherit;
 }
 
+.page-loading * {
+	animation-play-state: paused !important;
+}
+
+.anim-slide-left {
+	/*transition: all 0.5s cubic-bezier(.95,.95,.53,.88);*/
+	/*transform: translate(-100vw,0);*/
+	opacity: 0;
+	transform: translate(-100vw,0);
+	transition: all 1s ;
+}
