@@ -9,7 +9,7 @@ Recipe 			= require("./models/Recipe.js"),
 passport 		= require("passport"),
 port			= process.env.PORT || 3000,
 LocalStrategy 	= require("passport-local"),
-User 			= require("./models/User.js"),
+User 			= require("./models/user.js"),
 passportLocalMongoose = require("passport-local-mongoose"),
 mongoLocal		= "mongodb://localhost:27017/recipes",
 mongoServer		= "mongodb+srv://deaconmofojones:Chuletas1@merchapp-a2iob.azure.mongodb.net/test?retryWrites=true&w=majority"
