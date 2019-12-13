@@ -244,3 +244,11 @@ img {
 	transform: translate(-100vw,0);
 	transition: all 1s ;
 }
+
+.anim-slide-up {
+	/*transition: all 0.5s cubic-bezier(.95,.95,.53,.88);*/
+	/*transform: translate(-100vw,0);*/
+	opacity: 0;
+	transform: translate(0, 100px);
+	transition: all 1s ;
+}

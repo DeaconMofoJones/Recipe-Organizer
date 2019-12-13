@@ -1,6 +1,6 @@
 <% include partials/header.ejs %>
 
-<div class="row anim-slide-left">
+<div class="row anim-slide-up">
 	<div class="col">
 		<div class="jumbotron title-div box-shadow">
 			<h1>Welcome, <%= user.username %> </h1>	
@@ -11,8 +11,8 @@
 
 
 
-<div class="row section section-thumbnail anim-slide-left">
-		<div class="col-12 anim-slide-left">
+<div class="row section section-thumbnail anim-slide-up">
+		<div class="col-12 anim-slide-up">
 			<div class="jumbotron section-header color-white box-shadow">
 				<h2>Your Saved Recipes
 					<a href="/recipes/new" class="btn btn-outline-primary color-4 newRecipeButton" role="button"><i class="fas fa-plus"></i></a>
@@ -21,10 +21,10 @@
 			</div>		
 		</div>
 		
-		<div class="col-12 anim-slide-left" >
+		<div class="col-12 anim-slide-up" >
 			<div class="row color-white box-shadow">
 				<% for (var i = 0; i < recipes.length; i++) { %>
-					<a href="/recipes/<%= recipes[i]._id %>" class="col-xl-3 col-lg-4 col-6 thumbnail anim-slide-left" image="URL(<%= recipes[i].image %>)">
+					<a href="/recipes/<%= recipes[i]._id %>" class="col-xl-3 col-lg-4 col-6 thumbnail anim-slide-up" image="URL(<%= recipes[i].image %>)">
 						
 						<h2 class="thumbnail-title"><%= recipes[i]["title"] %></h2>
 						<div class="cover">
@@ -96,6 +96,10 @@
 		//     // each element should animate half a second after the last one.
 		//   });
 
+
+		//========================
+		//  Slide Left Animation
+		//========================
 		var animationDivCount = $(".anim-slide-left").length;
 
 		console.log($(".anim-slide-left:first"))
@@ -105,9 +109,19 @@
 				$(".anim-slide-left").eq(i).css("opacity",100);
 				$(".anim-slide-left").eq(i).css("transform", "translate(0,0)");
 			}
+		
+
+		//========================
+		//  Slide Up Animation
+		//========================
+		var slideUpCount = $(".anim-slide-up").length;
+
+		for (var i = 0; i < slideUpCount; i++) {
+				$(".anim-slide-up").eq(i).css("transition-delay",0.2*i+"s");
+				$(".anim-slide-up").eq(i).css("opacity",100);
+				$(".anim-slide-up").eq(i).css("transform", "translate(0,0)");
+			}
 		})
-
-
 
 </script>
 
