@@ -112,7 +112,7 @@ app.post("/newLink", isLoggedIn ,function(req,res){
 })
 app.post("/newSearch", isLoggedIn ,function(req,res){
 	var userSearch = req.body.recipe["search"];
-	request("https://api.spoonacular.com/recipes/search?query="+userSearch+"&number=5&apiKey=6d53692bf5d14e8f93db61d833872edc", function(error,response,body){
+	request("https://api.spoonacular.com/recipes/search?query="+userSearch+"&number=5&apiKey=6d53692bf5d14e8f93db61d833872edc&limitLicense=true", function(error,response,body){
 		var data = JSON.parse(body);
 		console.log(data);
 		res.render("searchResults.ejs", {data:data, user:req.user});
