@@ -1,5 +1,46 @@
 <% include partials/header.ejs %>
 
-<h1>home page</h1>
+<div class="row anim-welcome">
+	<div class="col jumbotron title-div box-shadow anim-welcome">
+		<h1>Welcome, <%= user.username %></h1>
+	</div>
+</div>
+
+<div class="container-fluid section-dark section-browse-by box-shadow">
+	<div class="row browse-row">
+		<h3 class="browse-header">Browse Recipes</h3>
+		<div class="btn-group" role="group" aria-label="Basic example">
+		  <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Top-Rated"><i class="fas fa-star"></i></button>
+		  <button type="button" class="btn btn-secondary " data-toggle="tooltip" data-placement="top" title="Healthy"><i class="fas fa-leaf"></i></button>
+		  <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Saved Recipes"><i class="fas fa-heart"></i></button>
+		</div>
+	</div>
+
+	<div class="row featured-browse-by">
+
+		
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+//pause animations while page is loading
+$(".body").addClass("page-loading");
+
+//call back function will run when page is done loading
+$(document).ready(function(){
+	$(".body").removeClass("page-loading");
+	//========================
+	//  Welcome Animation
+	//========================
+
+		$(".anim-welcome").css("opacity",100);
+		setTimeout(function(){
+			$(".anim-welcome").css("height", 200);
+		}, 1500);
+})
+
+</script>
 
 <% include partials/footer.ejs %>
