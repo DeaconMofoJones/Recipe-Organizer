@@ -280,3 +280,26 @@ img {
 	padding: 50px;
 }
 
+
+/*========================*/
+/*	Special Picks Section */
+/*========================*/
+
+.section-special-picks {
+	height: 800px;
+}
+
+.section-special-picks .row-body .col {
+	height: 500px;
+	background-color: rgba(255,255,255,0.5);
+	margin: 40px;
+	padding: 0;
+}
+
+.section-special-picks .info {
+	position: absolute;
+	bottom: 0;
+	height: 200px;
+	background-color: white;
+	width: 100%;
+}
